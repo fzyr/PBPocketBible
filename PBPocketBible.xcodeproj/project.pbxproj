@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		27526E641C0BDA030053DF80 /* bible.xml in Resources */ = {isa = PBXBuildFile; fileRef = 27526E631C0BDA030053DF80 /* bible.xml */; settings = {ASSET_TAGS = (); }; };
+		27526E6A1C0BF6760053DF80 /* PBBibleChapterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27526E691C0BF6760053DF80 /* PBBibleChapterViewController.m */; settings = {ASSET_TAGS = (); }; };
+		27526E6D1C0BF6A50053DF80 /* PBBibleSectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27526E6C1C0BF6A50053DF80 /* PBBibleSectionCell.m */; settings = {ASSET_TAGS = (); }; };
+		27526E701C0C147D0053DF80 /* PBBibleSubChapterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27526E6F1C0C147D0053DF80 /* PBBibleSubChapterCell.m */; settings = {ASSET_TAGS = (); }; };
 		27AEF30A1C0B4FA10094C0BC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AEF3091C0B4FA10094C0BC /* main.m */; };
 		27AEF30D1C0B4FA10094C0BC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AEF30C1C0B4FA10094C0BC /* AppDelegate.m */; };
 		27AEF3131C0B4FA10094C0BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27AEF3111C0B4FA10094C0BC /* Main.storyboard */; };
@@ -42,6 +45,12 @@
 /* Begin PBXFileReference section */
 		08A05064CF1373479DA4D593 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		27526E631C0BDA030053DF80 /* bible.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = bible.xml; sourceTree = "<group>"; };
+		27526E681C0BF6760053DF80 /* PBBibleChapterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBBibleChapterViewController.h; sourceTree = "<group>"; };
+		27526E691C0BF6760053DF80 /* PBBibleChapterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBBibleChapterViewController.m; sourceTree = "<group>"; };
+		27526E6B1C0BF6A50053DF80 /* PBBibleSectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBBibleSectionCell.h; sourceTree = "<group>"; };
+		27526E6C1C0BF6A50053DF80 /* PBBibleSectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBBibleSectionCell.m; sourceTree = "<group>"; };
+		27526E6E1C0C147D0053DF80 /* PBBibleSubChapterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBBibleSubChapterCell.h; sourceTree = "<group>"; };
+		27526E6F1C0C147D0053DF80 /* PBBibleSubChapterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBBibleSubChapterCell.m; sourceTree = "<group>"; };
 		27AEF3051C0B4FA10094C0BC /* PBPocketBible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PBPocketBible.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27AEF3091C0B4FA10094C0BC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		27AEF30B1C0B4FA10094C0BC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -129,6 +138,12 @@
 				27AEF3451C0B52550094C0BC /* PBBibleVolumeViewController.m */,
 				27AEF3471C0B52F50094C0BC /* PBBibleChapterCell.h */,
 				27AEF3481C0B52F50094C0BC /* PBBibleChapterCell.m */,
+				27526E681C0BF6760053DF80 /* PBBibleChapterViewController.h */,
+				27526E691C0BF6760053DF80 /* PBBibleChapterViewController.m */,
+				27526E6E1C0C147D0053DF80 /* PBBibleSubChapterCell.h */,
+				27526E6F1C0C147D0053DF80 /* PBBibleSubChapterCell.m */,
+				27526E6B1C0BF6A50053DF80 /* PBBibleSectionCell.h */,
+				27526E6C1C0BF6A50053DF80 /* PBBibleSectionCell.m */,
 				27AEF3111C0B4FA10094C0BC /* Main.storyboard */,
 				27526E631C0BDA030053DF80 /* bible.xml */,
 				27AEF3141C0B4FA10094C0BC /* Assets.xcassets */,
@@ -365,8 +380,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				27AEF3491C0B52F50094C0BC /* PBBibleChapterCell.m in Sources */,
+				27526E6A1C0BF6760053DF80 /* PBBibleChapterViewController.m in Sources */,
 				27AEF30D1C0B4FA10094C0BC /* AppDelegate.m in Sources */,
 				27AEF33D1C0B51460094C0BC /* PBBibleBookViewController.m in Sources */,
+				27526E701C0C147D0053DF80 /* PBBibleSubChapterCell.m in Sources */,
+				27526E6D1C0BF6A50053DF80 /* PBBibleSectionCell.m in Sources */,
 				27AEF3401C0B51E20094C0BC /* PBBibleVolumeCell.m in Sources */,
 				27AEF30A1C0B4FA10094C0BC /* main.m in Sources */,
 				27AEF3461C0B52550094C0BC /* PBBibleVolumeViewController.m in Sources */,

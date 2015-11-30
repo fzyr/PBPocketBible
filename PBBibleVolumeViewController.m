@@ -8,6 +8,7 @@
 
 #import "PBBibleVolumeViewController.h"
 #import "PBBibleChapterCell.h"
+#import "PBBibleChapterViewController.h"
 
 #define VOLUMEKEYNUMBER @"volumeKeyNumber"  //卷：第几卷
 #define VOLUMEKEYCOLOR @"volumeKeyColor"    //卷：颜色
@@ -73,6 +74,15 @@ static NSString * const reuseIdentifier = @"ChapterCell";
     // Dispose of any resources that can be recreated.
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"SegueToChapter"]){
+        PBBibleChapterViewController *cvc = (PBBibleChapterViewController *)segue.destinationViewController;
+        NSIndexPath *selectedIP = self.collectionView.indexPathsForSelectedItems[0];
+        cvc.chapter = self.chapters[selectedIP.row];
+        cvc.bible = self.bible;
+    }
+}
+
 /*
 #pragma mark - Navigation
 
@@ -106,6 +116,11 @@ static NSString * const reuseIdentifier = @"ChapterCell";
 }
 
 #pragma mark <UICollectionViewDelegate>
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [self performSegueWithIdentifier:@"SegueToChapter" sender:indexPath];
+}
 
 /*
 // Uncomment this method to specify if the specified item should be highlighted during tracking

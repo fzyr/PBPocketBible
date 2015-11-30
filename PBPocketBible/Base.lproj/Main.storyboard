@@ -2,8 +2,92 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Ngs-KP-U7K">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Bible Chapter View Controller-->
+        <scene sceneID="XtH-Be-WPN">
+            <objects>
+                <tableViewController id="aQe-Kn-PXG" customClass="PBBibleChapterViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="w1m-Zj-O0m">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SectionCell" id="O3U-SV-VUC" customClass="PBBibleSectionCell">
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O3U-SV-VUC" id="hqu-37-HlL">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47W-do-3pA">
+                                            <rect key="frame" x="38" y="18" width="260" height="7.5"/>
+                                            <color key="backgroundColor" red="1" green="0.93873531659999998" blue="0.89127835460000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="260" id="a3j-T9-OkA"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3QM-T9-pdv">
+                                            <rect key="frame" x="8" y="18" width="20" height="20"/>
+                                            <color key="backgroundColor" red="1" green="0.93873531659999998" blue="0.89127835460000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="Fqb-ni-Qiw"/>
+                                                <constraint firstAttribute="width" constant="20" id="GRt-67-1nr"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="47W-do-3pA" secondAttribute="bottom" constant="10" id="0rr-Ms-48j"/>
+                                        <constraint firstItem="47W-do-3pA" firstAttribute="leading" secondItem="3QM-T9-pdv" secondAttribute="trailing" constant="10" id="PuB-5F-OsR"/>
+                                        <constraint firstItem="47W-do-3pA" firstAttribute="top" secondItem="hqu-37-HlL" secondAttribute="topMargin" constant="10" id="X3h-Eb-rku"/>
+                                        <constraint firstItem="3QM-T9-pdv" firstAttribute="top" secondItem="hqu-37-HlL" secondAttribute="topMargin" constant="10" id="iu6-Hb-yf9"/>
+                                        <constraint firstItem="3QM-T9-pdv" firstAttribute="leading" secondItem="hqu-37-HlL" secondAttribute="leadingMargin" id="z5v-K4-8r5"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="SectionTextLabel" destination="47W-do-3pA" id="eXG-Ia-6En"/>
+                                    <outlet property="sectionNumberLabel" destination="3QM-T9-pdv" id="7Ea-ke-bO2"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SubChapterCell" rowHeight="52" id="myS-Ag-u2L" customClass="PBBibleSubChapterCell">
+                                <rect key="frame" x="0.0" y="136" width="320" height="52"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="myS-Ag-u2L" id="yo8-On-k4n">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="51.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4j-bf-tLH">
+                                            <rect key="frame" x="8" y="8" width="294" height="35.5"/>
+                                            <color key="backgroundColor" red="0.63414996599999995" green="0.63414996599999995" blue="0.63414996599999995" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="titleLabel" destination="J4j-bf-tLH" id="47X-cv-E4u"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="aQe-Kn-PXG" id="q4N-Fi-hYA"/>
+                            <outlet property="delegate" destination="aQe-Kn-PXG" id="bay-7K-fFx"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Kzh-Ge-oX7"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ptT-Jd-1QI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1719" y="335"/>
+        </scene>
         <!--Bible Book View Controller-->
         <scene sceneID="qtl-Va-Rel">
             <objects>
@@ -112,6 +196,9 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="bSZ-id-sSP"/>
+                    <connections>
+                        <segue destination="aQe-Kn-PXG" kind="push" identifier="SegueToChapter" id="UFC-nr-OBD"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FOG-Pc-ye9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
