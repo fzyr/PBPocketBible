@@ -40,6 +40,17 @@ static NSString * const reuseIdentifier = @"ChapterCell";
     self.collectionView.backgroundColor = [UIColor whiteColor];
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+
+    [super viewDidAppear:animated];
+    if(self.completeGotoDic){
+
+        [self performSegueWithIdentifier:@"SegueToChapter" sender:self.completeGotoDic];
+        self.completeGotoDic = nil;
+    }
+
+}
+
 #pragma mark - properties setter and getter
 
 -(NSArray *)chapters{
@@ -48,18 +59,24 @@ static NSString * const reuseIdentifier = @"ChapterCell";
         ONOXMLElement *volumeElement = self.volume[VOLUMEKEYELEMENT];
         for(ONOXMLElement *element in volumeElement.children){
             if([element.tag isEqualToString:CHAPTERTAG]){
-                NSString *value = element.attributes[CHAPTERKEYVALUE];
-                NSString *title = element.attributes[CHAPTERKEYTITLE];
-                NSDictionary *chapter = @{   CHAPTERKEYVALUE: value,
-                                             CHAPTERKEYTITLE: title,
-                                             CHAPTERKEYELEMENT: element,
-                                             };
+                NSDictionary *chapter = [self translateChapterElementIntoDictionary:element];
                 [tempChapters addObject:chapter];
             }
         }
         _chapters= [NSArray arrayWithArray:tempChapters];
     }
     return _chapters;
+}
+
+-(NSDictionary *)translateChapterElementIntoDictionary:(ONOXMLElement *) element{
+
+    NSString *value = element.attributes[CHAPTERKEYVALUE];
+    NSString *title = element.attributes[CHAPTERKEYTITLE];
+    NSDictionary *chapter = @{   CHAPTERKEYVALUE: value,
+                                 CHAPTERKEYTITLE: title,
+                                 CHAPTERKEYELEMENT: element,
+                                 };
+    return chapter;
 }
 
 -(void)printChapters{
@@ -75,7 +92,18 @@ static NSString * const reuseIdentifier = @"ChapterCell";
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.identifier isEqualToString:@"SegueToChapter"]){
+    
+    if([sender isKindOfClass:[NSDictionary class]]){
+        PBBibleChapterViewController *cvc = (PBBibleChapterViewController *)segue.destinationViewController;
+        NSDictionary *dict = (NSDictionary *)sender;
+        ONOXMLElement *chapterElement = dict[@"chapterElement"];
+        NSDictionary *chapter = [self translateChapterElementIntoDictionary:chapterElement];
+        cvc.chapter = chapter;
+        cvc.bible = self.bible;
+        cvc.completeGotoDict = dict;
+        
+    }
+    else if([segue.identifier isEqualToString:@"SegueToChapter"]){
         PBBibleChapterViewController *cvc = (PBBibleChapterViewController *)segue.destinationViewController;
         NSIndexPath *selectedIP = self.collectionView.indexPathsForSelectedItems[0];
         cvc.chapter = self.chapters[selectedIP.row];

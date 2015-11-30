@@ -33,6 +33,7 @@ static NSString * const reuseIdentifier = @"VolumeCell";
     
     self.title = @"圣经";
     self.collectionView.backgroundColor = [UIColor whiteColor];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveToBibleSectionNotification:) name:@"toBibleSection" object:nil];
     
 }
 
@@ -56,16 +57,7 @@ static NSString * const reuseIdentifier = @"VolumeCell";
     if(!_volumes){
         NSMutableArray *tempVolumes = [NSMutableArray array];
         for(ONOXMLElement *element in self.bible.rootElement.children){
-            NSString *name = element.attributes[@"name"];
-            NSString *sName = element.attributes[@"sname"];
-            NSString *number = element.attributes[@"value"];
-            NSString *title = element.attributes[@"title"];
-            NSDictionary *volume = @{VOLUMEKEYNUMBER:number,
-                                     VOLUMEKEYNAME:name,
-                                     VOLUMEKEYSNAME:sName,
-                                     VOLUMEKEYTITLE:title,
-                                     VOLUMEKEYELEMENT:element,
-                                     };
+            NSDictionary *volume = [self translateVolumeElementintoDictionary:element];
             [tempVolumes addObject:volume];
         }
         _volumes = [NSArray arrayWithArray:tempVolumes];
@@ -73,6 +65,21 @@ static NSString * const reuseIdentifier = @"VolumeCell";
     return _volumes;
 }
 
+-(NSDictionary *)translateVolumeElementintoDictionary: (ONOXMLElement *)element {
+    NSString *name = element.attributes[@"name"];
+    NSString *sName = element.attributes[@"sname"];
+    NSString *number = element.attributes[@"value"];
+    NSString *title = element.attributes[@"title"];
+
+    NSDictionary *volume = @{VOLUMEKEYNUMBER:number,
+                             VOLUMEKEYNAME:name,
+                             VOLUMEKEYSNAME:sName,
+                             VOLUMEKEYTITLE:title,
+                             VOLUMEKEYELEMENT:element,
+                             };
+    return volume;
+
+}
 
 
 -(void)printVolumes{
@@ -82,9 +89,24 @@ static NSString * const reuseIdentifier = @"VolumeCell";
     
 }
 
+#pragma mark - 监听和跳转
+
+-(void)receiveToBibleSectionNotification:(NSNotification *)notification{
+    NSDictionary * dict = notification.userInfo;
+    [self performSegueWithIdentifier:@"SegueToVolume" sender:dict];
+}
+
+
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    
-    if([segue.identifier isEqualToString:@"SegueToVolume"]){
+    if([sender isKindOfClass:[NSDictionary class]]){
+        PBBibleVolumeViewController *vvc = (PBBibleVolumeViewController *)segue.destinationViewController;
+        vvc.bible = self.bible;
+        NSDictionary *dict = (NSDictionary *)sender;
+        ONOXMLElement *volumeElement = dict[@"volumeElement"];
+        vvc.volume = [self translateVolumeElementintoDictionary:volumeElement];
+        vvc.completeGotoDic = dict;
+    }else if([segue.identifier isEqualToString:@"SegueToVolume"]){
         PBBibleVolumeViewController *vvc = (PBBibleVolumeViewController *)segue.destinationViewController;
         vvc.bible = self.bible;
         NSIndexPath *selectedIP = self.collectionView.indexPathsForSelectedItems[0];
@@ -127,6 +149,7 @@ static NSString * const reuseIdentifier = @"VolumeCell";
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
     return 30;
 }
+
 /*
 // Uncomment this method to specify if the specified item should be highlighted during tracking
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {

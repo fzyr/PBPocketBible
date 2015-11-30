@@ -73,6 +73,17 @@ static NSString * const reusableIdentifier2 = @"SubChapterCell";
     }
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    if(self.completeGotoDict){
+        ONOXMLElement *sectionElement = self.completeGotoDict[@"sectionElement"];
+        NSString *sectionNumber = sectionElement[SECTIONNUMBER];
+
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[sectionNumber intValue] inSection:0];
+        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+        self.completeGotoDict = nil;
+    }
+}
 
 -(NSArray *)sections{
     if(!_sections){

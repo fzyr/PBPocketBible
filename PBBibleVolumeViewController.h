@@ -12,4 +12,5 @@
 @property (nonatomic, strong) NSArray *chapters;
 @property (nonatomic, strong) NSDictionary *volume;
 @property (nonatomic, strong) ONOXMLDocument *bible;
+@property (nonatomic, strong) NSDictionary *completeGotoDic;
 @end

@@ -203,11 +203,11 @@
             </objects>
             <point key="canvasLocation" x="1345" y="340"/>
         </scene>
-        <!--Item-->
+        <!--bible-->
         <scene sceneID="GWS-xH-66Z">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Uv5-Om-HU2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="FPq-bL-8Nf"/>
+                    <tabBarItem key="tabBarItem" title="bible" id="FPq-bL-8Nf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dju-ZQ-loQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -222,6 +222,73 @@
             </objects>
             <point key="canvasLocation" x="451" y="340"/>
         </scene>
+        <!--Quote-->
+        <scene sceneID="uy9-ai-myO">
+            <objects>
+                <viewController id="L4K-fe-5js" customClass="PBBibleQuoteViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QKA-Qr-4Vm"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qku-9B-Z10"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ftW-9G-bc1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ii9-2I-j7H" userLabel="Goto Button">
+                                <rect key="frame" x="20" y="447" width="90" height="30"/>
+                                <state key="normal" title="前往相应章节"/>
+                                <connections>
+                                    <action selector="gotoButtonPressed:" destination="L4K-fe-5js" eventType="touchUpInside" id="NeN-7m-itI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anl-7Z-1Lf" userLabel="Random Button">
+                                <rect key="frame" x="210" y="447" width="90" height="30"/>
+                                <state key="normal" title="随机下一金句"/>
+                                <connections>
+                                    <action selector="randomButtonPressed:" destination="L4K-fe-5js" eventType="touchUpInside" id="7cd-7s-cjP"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8AR-nP-1Pg" userLabel="Text View">
+                                <rect key="frame" x="20" y="65" width="280" height="277"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kap-WM-yMi" userLabel="Volume Label">
+                                        <rect key="frame" x="65" y="23" width="151" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9a-DJ-ncF" userLabel="Chapter Label">
+                                        <rect key="frame" x="92" y="52" width="95" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4bG-CU-jCs">
+                                        <rect key="frame" x="20" y="75" width="240" height="175"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Quote" id="nNl-MR-MQh"/>
+                    <connections>
+                        <outlet property="chapterLabel" destination="S9a-DJ-ncF" id="2gB-YI-1Gj"/>
+                        <outlet property="gotoButton" destination="ii9-2I-j7H" id="WBH-fU-Rcb"/>
+                        <outlet property="quoteBackgroundView" destination="8AR-nP-1Pg" id="AoI-T6-iEh"/>
+                        <outlet property="randomButton" destination="anl-7Z-1Lf" id="hpv-tv-X3h"/>
+                        <outlet property="textView" destination="4bG-CU-jCs" id="YLO-2O-MyS"/>
+                        <outlet property="volumeLabel" destination="kap-WM-yMi" id="EIh-ew-Vst"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ps8-ki-91h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="451" y="1008"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="k0x-l7-5yo">
             <objects>
@@ -233,11 +300,12 @@
                     </tabBar>
                     <connections>
                         <segue destination="Uv5-Om-HU2" kind="relationship" relationship="viewControllers" id="klp-wg-MpE"/>
+                        <segue destination="L4K-fe-5js" kind="relationship" relationship="viewControllers" id="93L-70-aPl"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vut-aF-xPz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-81" y="340"/>
+            <point key="canvasLocation" x="-129" y="852"/>
         </scene>
     </scenes>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
