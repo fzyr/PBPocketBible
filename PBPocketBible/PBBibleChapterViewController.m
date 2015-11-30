@@ -50,7 +50,7 @@ static NSString * const reusableIdentifier2 = @"SubChapterCell";
     
     self.tableView.estimatedRowHeight = 90;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    
+    self.title = [NSString stringWithFormat:@"第%@章",self.chapter[CHAPTERKEYVALUE]];
 
 }
 

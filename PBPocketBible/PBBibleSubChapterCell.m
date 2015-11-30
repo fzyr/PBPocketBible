@@ -11,7 +11,8 @@
 @implementation PBBibleSubChapterCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    self.titleLabel.backgroundColor = [UIColor whiteColor];
+    self.titleLabel.font = [UIFont fontWithName:@"Avenir Next" size:20];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
