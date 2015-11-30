@@ -40,19 +40,39 @@
 
 @end
 
-@implementation PBBibleChapterViewController
+@implementation PBBibleChapterViewController{
+    CAGradientLayer *maskLayer;//制造渐隐效果的图层
+}
 
 static NSString * const reusableIdentifier = @"SectionCell";
 static NSString * const reusableIdentifier2 = @"SubChapterCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.tableView.contentInset = UIEdgeInsetsMake(15, 0, 0, 0);
     self.tableView.estimatedRowHeight = 90;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.title = [NSString stringWithFormat:@"第%@章",self.chapter[CHAPTERKEYVALUE]];
-
 }
+
+//设置 渐隐图层
+-(void)viewWillAppear:(BOOL)animated{
+
+    [super viewWillAppear:animated];
+    if(!maskLayer){
+        maskLayer = [CAGradientLayer layer];
+        CGColorRef outerColor = [UIColor colorWithWhite:1.0 alpha:1].CGColor;
+        CGColorRef innerColor = [UIColor colorWithWhite:1.0 alpha:0].CGColor;
+        
+        maskLayer.colors = @[(__bridge id)outerColor,(__bridge id)innerColor,(__bridge id)innerColor,(__bridge id)outerColor];
+        maskLayer.locations = @[@0.12f,@0.2f,@0.8f,@0.88f];
+        maskLayer.bounds = CGRectMake(0, 0, self.tableView.frame.size.width, self.tableView.frame.size.height);
+        
+        maskLayer.anchorPoint = CGPointZero;
+        [self.tableView.layer addSublayer:maskLayer];
+    }
+}
+
 
 -(NSArray *)sections{
     if(!_sections){
@@ -87,6 +107,15 @@ static NSString * const reusableIdentifier2 = @"SubChapterCell";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+#pragma mark -Scroll view delegate
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [CATransaction begin];
+    [CATransaction setDisableActions:YES];
+    maskLayer.position = CGPointMake(0, scrollView.contentOffset.y);
+    [CATransaction commit];
+
 }
 
 #pragma mark - Table view data source

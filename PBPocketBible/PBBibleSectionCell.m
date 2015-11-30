@@ -11,7 +11,7 @@
 @implementation PBBibleSectionCell
 
 - (void)awakeFromNib {
-
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

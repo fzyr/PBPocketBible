@@ -12,7 +12,8 @@
 
 - (void)awakeFromNib {
     self.titleLabel.backgroundColor = [UIColor whiteColor];
-    self.titleLabel.font = [UIFont fontWithName:@"Avenir Next" size:20];
+
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
