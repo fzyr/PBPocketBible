@@ -34,7 +34,7 @@ static NSString * const reuseIdentifier = @"ChapterCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self printChapters];
+
     NSString *VolumeTitle = [NSString stringWithFormat:@"第%@卷: %@",self.volume[VOLUMEKEYNUMBER],self.volume[VOLUMEKEYNAME]];
     self.title = VolumeTitle;
     self.collectionView.backgroundColor = [UIColor whiteColor];

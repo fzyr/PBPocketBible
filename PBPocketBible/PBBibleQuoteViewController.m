@@ -125,10 +125,12 @@
     NSString *volumeString = [NSString stringWithFormat:@"第%@卷 %@",self.volumeElement[@"value"], self.volumeElement[@"name"]];
     NSString *chapterString = [NSString stringWithFormat:@"%@",self.chapterElement[@"title"]];
     NSString *sectionText = [NSString stringWithFormat:@"%@",self.sectionElement.stringValue];
-    
+
     self.volumeLabel.text = volumeString;
     self.chapterLabel.text = chapterString;
     self.textView.text = sectionText;
+
+
 
 }
 
@@ -141,6 +143,9 @@
 - (IBAction)gotoButtonPressed:(id)sender {
     self.tabBarController.selectedViewController = self.tabBarController.viewControllers[0];
     UINavigationController *nav =(UINavigationController *)self.tabBarController.selectedViewController;
+    
+    [nav popToRootViewControllerAnimated:NO];//使得nac的topViewController 返回到最先开始寻找quota。
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"toBibleSection" object:nil userInfo:@{@"volumeElement":self.volumeElement,
                                                                                                       @"chapterElement":self.chapterElement,
                                                                                                       @"sectionElement": self.sectionElement,

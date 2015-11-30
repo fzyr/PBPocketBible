@@ -77,9 +77,17 @@ static NSString * const reusableIdentifier2 = @"SubChapterCell";
     [super viewDidAppear:animated];
     if(self.completeGotoDict){
         ONOXMLElement *sectionElement = self.completeGotoDict[@"sectionElement"];
-        NSString *sectionNumber = sectionElement[SECTIONNUMBER];
-
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[sectionNumber intValue] inSection:0];
+        NSDictionary *section = [self translateSectionElementIntoDictionary:sectionElement];
+        NSUInteger sectionRow = 0;
+        for (NSDictionary *s in self.sections){
+            if([s objectForKey:SECTIONNUMBER]){
+                if([s[SECTIONNUMBER] isEqualToString: section[SECTIONNUMBER]]){
+                    sectionRow = [self.sections indexOfObject:s];
+                    break;
+                }
+            }
+        }
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:sectionRow inSection:0];
         [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
         self.completeGotoDict = nil;
     }
@@ -91,14 +99,7 @@ static NSString * const reusableIdentifier2 = @"SubChapterCell";
         ONOXMLElement *chapterElement = self.chapter[CHAPTERKEYELEMENT];
         for(ONOXMLElement *element in chapterElement.children ){
             if([element.tag isEqualToString:SECTIONTAG]){
-                NSString *sectionText = element.stringValue;
-                NSString *sectionNumber = element.attributes[@"value"];
-                NSDictionary *section = @{
-                                          TYPE: element.tag,
-                                          SECTIONNUMBER: sectionNumber,
-                                          SECTIONTEXT: sectionText,
-                                          SECTIONELEMENT:element
-                                          };
+                NSDictionary *section = [self translateSectionElementIntoDictionary:element];
                 [tempSections addObject:section];
             }else if ([element.tag isEqualToString:CHAPTERSUBTITLETAG]){
                 NSString *chapterSubText = element.stringValue;
@@ -112,6 +113,19 @@ static NSString * const reusableIdentifier2 = @"SubChapterCell";
         _sections = [NSArray arrayWithArray:tempSections];
     }
     return _sections;
+}
+
+-(NSDictionary *)translateSectionElementIntoDictionary:(ONOXMLElement *)element{
+    NSString *sectionText = element.stringValue;
+    NSString *sectionNumber = element.attributes[@"value"];
+    NSDictionary *section = @{
+                              TYPE: element.tag,
+                              SECTIONNUMBER: sectionNumber,
+                              SECTIONTEXT: sectionText,
+                              SECTIONELEMENT:element
+                              };
+
+    return section;
 }
 
 
