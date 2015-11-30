@@ -42,4 +42,16 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+-(ONOXMLDocument *)bible{
+    if(!_bible){
+        NSString *xmlPath = [[NSBundle mainBundle] pathForResource:@"bible" ofType:@"xml"];
+        NSData *bibleData = [NSData dataWithContentsOfFile:xmlPath];
+        NSError *error;
+        _bible = [ONOXMLDocument XMLDocumentWithData:bibleData error:&error];
+    }
+    
+    return _bible;
+}
+
+
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27526E641C0BDA030053DF80 /* bible.xml in Resources */ = {isa = PBXBuildFile; fileRef = 27526E631C0BDA030053DF80 /* bible.xml */; settings = {ASSET_TAGS = (); }; };
 		27AEF30A1C0B4FA10094C0BC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AEF3091C0B4FA10094C0BC /* main.m */; };
 		27AEF30D1C0B4FA10094C0BC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AEF30C1C0B4FA10094C0BC /* AppDelegate.m */; };
 		27AEF3131C0B4FA10094C0BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27AEF3111C0B4FA10094C0BC /* Main.storyboard */; };
@@ -14,6 +15,10 @@
 		27AEF3181C0B4FA10094C0BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27AEF3161C0B4FA10094C0BC /* LaunchScreen.storyboard */; };
 		27AEF3231C0B4FA10094C0BC /* PBPocketBibleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AEF3221C0B4FA10094C0BC /* PBPocketBibleTests.m */; };
 		27AEF32E1C0B4FA20094C0BC /* PBPocketBibleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AEF32D1C0B4FA20094C0BC /* PBPocketBibleUITests.m */; };
+		27AEF33D1C0B51460094C0BC /* PBBibleBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AEF33C1C0B51460094C0BC /* PBBibleBookViewController.m */; settings = {ASSET_TAGS = (); }; };
+		27AEF3401C0B51E20094C0BC /* PBBibleVolumeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AEF33F1C0B51E20094C0BC /* PBBibleVolumeCell.m */; settings = {ASSET_TAGS = (); }; };
+		27AEF3461C0B52550094C0BC /* PBBibleVolumeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AEF3451C0B52550094C0BC /* PBBibleVolumeViewController.m */; settings = {ASSET_TAGS = (); }; };
+		27AEF3491C0B52F50094C0BC /* PBBibleChapterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AEF3481C0B52F50094C0BC /* PBBibleChapterCell.m */; settings = {ASSET_TAGS = (); }; };
 		3DB57E1B37C29A68C05D1990 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08A05064CF1373479DA4D593 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		08A05064CF1373479DA4D593 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		27526E631C0BDA030053DF80 /* bible.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = bible.xml; sourceTree = "<group>"; };
 		27AEF3051C0B4FA10094C0BC /* PBPocketBible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PBPocketBible.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27AEF3091C0B4FA10094C0BC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		27AEF30B1C0B4FA10094C0BC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -50,6 +56,14 @@
 		27AEF3291C0B4FA10094C0BC /* PBPocketBibleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PBPocketBibleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27AEF32D1C0B4FA20094C0BC /* PBPocketBibleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PBPocketBibleUITests.m; sourceTree = "<group>"; };
 		27AEF32F1C0B4FA20094C0BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27AEF33B1C0B51460094C0BC /* PBBibleBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBBibleBookViewController.h; sourceTree = "<group>"; };
+		27AEF33C1C0B51460094C0BC /* PBBibleBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBBibleBookViewController.m; sourceTree = "<group>"; };
+		27AEF33E1C0B51E20094C0BC /* PBBibleVolumeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBBibleVolumeCell.h; sourceTree = "<group>"; };
+		27AEF33F1C0B51E20094C0BC /* PBBibleVolumeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBBibleVolumeCell.m; sourceTree = "<group>"; };
+		27AEF3441C0B52550094C0BC /* PBBibleVolumeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBBibleVolumeViewController.h; path = ../PBBibleVolumeViewController.h; sourceTree = "<group>"; };
+		27AEF3451C0B52550094C0BC /* PBBibleVolumeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PBBibleVolumeViewController.m; path = ../PBBibleVolumeViewController.m; sourceTree = "<group>"; };
+		27AEF3471C0B52F50094C0BC /* PBBibleChapterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBBibleChapterCell.h; sourceTree = "<group>"; };
+		27AEF3481C0B52F50094C0BC /* PBBibleChapterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBBibleChapterCell.m; sourceTree = "<group>"; };
 		A8A6D5B5414408C923129B1C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C0C6FD8B7A0409CB4EBC6D68 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,7 +121,16 @@
 			children = (
 				27AEF30B1C0B4FA10094C0BC /* AppDelegate.h */,
 				27AEF30C1C0B4FA10094C0BC /* AppDelegate.m */,
+				27AEF33B1C0B51460094C0BC /* PBBibleBookViewController.h */,
+				27AEF33C1C0B51460094C0BC /* PBBibleBookViewController.m */,
+				27AEF33E1C0B51E20094C0BC /* PBBibleVolumeCell.h */,
+				27AEF33F1C0B51E20094C0BC /* PBBibleVolumeCell.m */,
+				27AEF3441C0B52550094C0BC /* PBBibleVolumeViewController.h */,
+				27AEF3451C0B52550094C0BC /* PBBibleVolumeViewController.m */,
+				27AEF3471C0B52F50094C0BC /* PBBibleChapterCell.h */,
+				27AEF3481C0B52F50094C0BC /* PBBibleChapterCell.m */,
 				27AEF3111C0B4FA10094C0BC /* Main.storyboard */,
+				27526E631C0BDA030053DF80 /* bible.xml */,
 				27AEF3141C0B4FA10094C0BC /* Assets.xcassets */,
 				27AEF3161C0B4FA10094C0BC /* LaunchScreen.storyboard */,
 				27AEF3191C0B4FA10094C0BC /* Info.plist */,
@@ -267,6 +290,7 @@
 			files = (
 				27AEF3181C0B4FA10094C0BC /* LaunchScreen.storyboard in Resources */,
 				27AEF3151C0B4FA10094C0BC /* Assets.xcassets in Resources */,
+				27526E641C0BDA030053DF80 /* bible.xml in Resources */,
 				27AEF3131C0B4FA10094C0BC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,8 +364,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27AEF3491C0B52F50094C0BC /* PBBibleChapterCell.m in Sources */,
 				27AEF30D1C0B4FA10094C0BC /* AppDelegate.m in Sources */,
+				27AEF33D1C0B51460094C0BC /* PBBibleBookViewController.m in Sources */,
+				27AEF3401C0B51E20094C0BC /* PBBibleVolumeCell.m in Sources */,
 				27AEF30A1C0B4FA10094C0BC /* main.m in Sources */,
+				27AEF3461C0B52550094C0BC /* PBBibleVolumeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
